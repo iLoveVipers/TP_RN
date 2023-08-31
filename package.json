@@ -9,10 +9,18 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@iconify/react": "^4.1.1",
+    "@react-native-async-storage/async-storage": "^1.19.3",
+    "bootstrap": "^5.3.1",
     "expo": "~49.0.5",
+    "expo-cli": "^6.3.10",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
-    "react-native": "0.72.3"
+    "react-bootstrap": "^2.8.0",
+    "react-dom": "^18.2.0",
+    "react-native": "0.72.3",
+    "react-native-elements": "^3.4.3",
+    "react-native-web": "^0.19.8"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
