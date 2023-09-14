@@ -1,11 +1,8 @@
-import { StatusBar } from 'expo-status-bar'
-import {FlatList, StyleSheet, Text, View, Button, TextInput, TouchableOpacity, CheckBox } from 'react-native'
+import {FlatList, StyleSheet, Text, View, Button, TextInput, Pressable, TouchableOpacity, CheckBox } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useEffect, useRef, useState } from 'react'
 import { Icon } from '@iconify/react';
 import { Input } from 'react-native-elements'
-import { findDOMNode } from 'react-dom';
-import { Button } from '@rneui/themed';
 
 export default function App() {
   const [text, onChangeText] = useState('')
@@ -75,21 +72,15 @@ export default function App() {
           style={styles.mainInput}
         />
         <View style={styles.posicionCentrado} >
-        <Button
-  ViewComponent={LinearGradient} // Don't forget this!
-  linearGradientProps={{
-    colors: ["#FF9800", "#F44336"],
-    start: { x: 0, y: 0.5 },
-    end: { x: 1, y: 0.5 }, 
-  }} onPress={handlePress}
->
-  Linear Gradient
-</Button>
+
+        <Pressable style={styles.pressable} onPress={handlePress}>
+  <Text>Agregar Tarea</Text>
+</Pressable>
         </View>
 
         
           <FlatList
-          data={listaTareas}
+          data={listaTareas} style={styles.algomas}
           renderItem={({ item, index }) => (
             <View style={styles.cuadro}>
             <View style={styles.checkboxContainer}>
@@ -139,17 +130,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center'
   },
-  botonAgregar: {
-    borderRadius: 20,
-    backgroundColor: '#81F79F',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    maxHeight: '3rem',
-    minWidth: '10rem',
-    padding: 10,
-    margin: '1rem'
-  },
   background: {
     width: '100%'
   },
@@ -160,15 +140,21 @@ const styles = StyleSheet.create({
   checkbox: {
     alignSelf: 'center',
   },
+  algomas:{
+    padding: '1rem'
+  },
   cuadro:{
-    borderWidth: 2,
-    borderRadius: 20,
     padding: "0.5rem",
-    borderColor: "#C4E8DC",
-    backgroundColor: '#e3e3e3de',
+    backgroundColor: '#fcfcfc',
     marginBottom: '1rem',
     paddingLeft: '1rem',
+    shadowColor: '#000000',
+    shadowOffset: {width: 1, height: 5},
+    shadowOpacity: 0.2,
+    shadowRadius: 17,
+    borderRadius: "2rem"
   },
+
   mainInput: {
     backgroundColor: '#e3e3e3de',
     borderRadius: 5
@@ -178,5 +164,24 @@ const styles = StyleSheet.create({
     fontSize: 18,
     height: 44,
     textDecorationLine: 'line-through'
+  },
+  pressable:{
+    borderRadius: 20,
+    backgroundColor: '#fcfcfc',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    maxHeight: '3rem',
+    minWidth: '10rem',
+    text: 'ffffff',
+    color: '#ffffff',
+    padding: 10,
+    margin: '1rem',
+  borderRadius: "50px",
+  shadowColor: '#000000',
+  shadowOffset: {width: 1, height: 5},
+  shadowOpacity: 0.2,
+  shadowRadius: 17,
+
   }
 });
